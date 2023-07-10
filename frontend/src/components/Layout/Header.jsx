@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux'
 import { backend_url } from '../../server'
 const Header = ({ activeHeading }) => {
     const { isAuthenticated, user } = useSelector(state => state.user)
-    console.log("from headder page",user, isAuthenticated);
+    console.log("from headder page", user, isAuthenticated);
 
     const [searchTerm, setsearchTerm] = useState("");
     const [searchData, setsearchData] = useState(null);
@@ -134,8 +134,9 @@ const Header = ({ activeHeading }) => {
                             <div className="relative cursor-pointer mr-[15px] ">
                                 {isAuthenticated ? (
                                     <Link to="/profile">
-                                        <img src={`${backend_url}${user?.avatar}`} alt=""
-                                        className='w-[40px] h-[40[x] rounded-full bg-black' />
+                                        {/* `${backend_url}${user?.avatar}` */}
+                                        <img src={logo} alt=""
+                                            className='w-[40px] h-[40[x] rounded-full bg-black' />
                                     </Link>
                                 ) : (
                                     <Link to="/login">

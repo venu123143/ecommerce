@@ -57,3 +57,10 @@ input[type=number] {
   animation: spinner .6s linear infinite;
 }
 
+/* carousal */
+.slick-dots{
+  bottom: 10px;
+}
+.slick-next::before,.slick-prev::before{
+  color: black;
+}
