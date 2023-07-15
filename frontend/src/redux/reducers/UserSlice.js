@@ -7,14 +7,10 @@ const initialState = {
 export const userFetch = createAsyncThunk(
     "Userdata/userFetch",
     async () => {
-        try {
-            const res = await axios.get(`${server}/getuser`, { withCredentials: true })
-            return res.data
-        } catch (err) {
-            console.log(err);
-        }
+        const res = await axios.get(`${server}/getuser`, { withCredentials: true })
+        console.log(res.data);
+        return res.data
     }
-
 )
 const userSlice = createSlice({
     name: 'Userdata',

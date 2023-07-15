@@ -13,8 +13,6 @@ import { useSelector } from 'react-redux'
 import { backend_url } from '../../server'
 const Header = ({ activeHeading }) => {
     const { isAuthenticated, user } = useSelector(state => state.user)
-    console.log("from headder page", user, isAuthenticated);
-
     const [searchTerm, setsearchTerm] = useState("");
     const [searchData, setsearchData] = useState(null);
     const [active, setActive] = useState(false);

@@ -115,6 +115,7 @@ router.post('/login-user', async (req, res) => {
 
 // get User
 router.get('/getuser', Authenticate, async (req, res) => {
+    console.log('calling get user');
     try {
         const user = await User.findById(req.user._id)
         if (!user) {
@@ -123,13 +124,11 @@ router.get('/getuser', Authenticate, async (req, res) => {
         }
         return res.status(200).json({ statusCode: 200, sucesss: true, user, message: 'user logged In sucessfully :)' })
     } catch (er) {
+        console.log(er.message);
         const err = new FancyError(er.message, 500)
         return error(err, req, res)
     }
 })
-
-
-
 
 
 router.get('*', (req, res, next) => {

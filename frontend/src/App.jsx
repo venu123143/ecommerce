@@ -8,6 +8,7 @@ import { userFetch } from './redux/reducers/UserSlice'
 const App = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state.user);
+  console.log(state);
   useEffect(() => {
     dispatch(userFetch())
     if (state?.statusCode === 200) {
