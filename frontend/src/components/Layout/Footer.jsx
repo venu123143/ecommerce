@@ -2,6 +2,8 @@ import React from 'react'
 import logo from "../../assests/ecommerce_smallsize_copy.png"
 import { AiFillFacebook, AiFillInstagram, AiFillYoutube, AiOutlineTwitter } from "react-icons/ai"
 import { footerProductLinks, footercompanyLinks } from "../../staticdata/data"
+import { RxSwitch } from 'react-icons/rx';
+
 import { Link } from "react-router-dom"
 const Footer = () => {
     return (
@@ -32,6 +34,7 @@ const Footer = () => {
                         <AiFillInstagram size={25} className='cursor-pointer ml-[15px]' />
                         <AiFillYoutube size={25} className='cursor-pointer ml-[15px]' />
                         <AiFillFacebook size={25} className='cursor-pointer ml-[15px]' />
+                        <RxSwitch size={25}/>
                     </div>
                 </ul>
                 <ul className='text-center sm:text-start'>

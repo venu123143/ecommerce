@@ -1,22 +1,11 @@
-import React, { useEffect } from 'react'
+import React  from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { LoginPage, SignUpPage, ActivationPage, HomePage, ProductsPage, BestSelling, Events, FAQ } from './routes'
 import "./app.css"
-import { Toaster, toast } from "react-hot-toast"
-import { useDispatch, useSelector } from 'react-redux'
-import { userFetch } from './redux/reducers/UserSlice'
+import { Toaster,  } from "react-hot-toast"
+
 const App = () => {
-  const dispatch = useDispatch();
-  const state = useSelector(state => state.user);
-  console.log(state);
-  useEffect(() => {
-    dispatch(userFetch())
-    if (state?.statusCode === 200) {
-      toast.success("user logged in sucessfully.")
-    } else {
-      toast.error("please login to continue")
-    }
-  }, [])
+  
   return (
     <div>
       <Toaster />

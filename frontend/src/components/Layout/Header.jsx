@@ -10,13 +10,17 @@ import { CgProfile } from "react-icons/cg"
 import DropDown from "./DropDown"
 import Navbar from "./Navbar.jsx"
 import { useSelector } from 'react-redux'
+import Wishlist from "../wishlist/Wishlist"
 import { backend_url } from '../../server'
+import Cart from "../cart/Cart"
 const Header = ({ activeHeading }) => {
     const { isAuthenticated, user } = useSelector(state => state.user)
     const [searchTerm, setsearchTerm] = useState("");
     const [searchData, setsearchData] = useState(null);
     const [active, setActive] = useState(false);
     const [dropDown, setDropDown] = useState(false);
+    const [openCart, setOpenCart] = useState(false)
+    const [Wishlist, setOpenWishlist] = useState(false)
 
     const handleSearchChange = (e) => {
         const term = e.target.value;
@@ -37,7 +41,7 @@ const Header = ({ activeHeading }) => {
     return (
         <>
             {/* part 1 */}
-            <div className={`${styles.section}`}>
+            <div className={`${styles.section} `}>
                 <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
                     <div>
                         <Link to="/">
@@ -83,7 +87,7 @@ const Header = ({ activeHeading }) => {
                 </div>
             </div>
             {/* part 2 */}
-            <div className={`${active === true ? "shadow-sm fixed top-0 left-0 z-10" : null} transition hidd 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70p]`}>
+            <div className={`${active === true ? "shadow-sm fixed top-0 left-0 z-10" : null} h-[70px] transition hidden 800px:flex 800px:items-center items-center justify-between w-full bg-[#3321c8] `}>
                 <div className={`${styles.section} relative ${styles.noramlFlex} justify-between`}>
                     {/* categories */}
                     <div>
@@ -108,11 +112,11 @@ const Header = ({ activeHeading }) => {
                         <Navbar active={activeHeading} />
                     </div>
                     {/* likes and kart */}
-                    <div className='flex'>
+                    <div className='flex' >
                         {/* icon1 */}
                         <div className={`${styles.noramlFlex}`}>
-                            <div className="relative cursor-pointer mr-[15px] ">
-                                <AiOutlineShoppingCart size={30} color='rgb(255 2555 255 / 83%)' />
+                            <div className="relative cursor-pointer mr-[15px] " onClick={() => setOpenCart(true)}>
+                                <AiOutlineShoppingCart size={30} color='rgb(255 2555 255 / 83%)' title='cart' />
                                 <span className='absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center'>1</span>
 
                             </div>
@@ -120,8 +124,8 @@ const Header = ({ activeHeading }) => {
 
                         {/* icon2 */}
                         <div className={`${styles.noramlFlex}`}>
-                            <div className="relative cursor-pointer mr-[15px] ">
-                                <AiOutlineHeart size={30} color='rgb(255 2555 255 / 83%)' />
+                            <div className="relative cursor-pointer mr-[15px] "  onClick={() => setOpenWishlist(true)}>
+                                <AiOutlineHeart size={30} color='rgb(255 2555 255 / 83%)' title='wishlist' />
                                 <span className='absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center'>0</span>
 
                             </div>
@@ -138,14 +142,26 @@ const Header = ({ activeHeading }) => {
                                     </Link>
                                 ) : (
                                     <Link to="/login">
-                                        <CgProfile size={30} color='rgb(255 2555 255 / 83%)' />
+                                        <CgProfile size={30} color='rgb(255 2555 255 / 83%)' title='login' />
                                     </Link>
                                 )}
                             </div>
                         </div>
                     </div>
+                    {/* cart popup */}
+                    {
+                        openCart ? (
+                            <Cart setOpenCart={setOpenCart} />
+                        ) : null
+                    }
+                    {/* wishlist popup */}
+                    {
+                        Wishlist ? (
+                            <Wishlist setOpenWishlist={setOpenWishlist} />
+                        ) : null
+                    }
                 </div>
-            </div>
+            </div >
         </>
     )
 }

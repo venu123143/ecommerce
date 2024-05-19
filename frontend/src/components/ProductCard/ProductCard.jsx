@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from '../../styles/style';
 import { AiFillHeart, AiFillStar, AiOutlineEye, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineStar } from 'react-icons/ai';
 import ProductDetailsCard from "../ProductDetailsCard"
-const ProductCard = ({ data, key }) => {
+const ProductCard = ({ data}) => {
     const [click, setClick] = useState(false);
     const [open, setOpen] = useState(false);
 

@@ -8,7 +8,6 @@ export const userFetch = createAsyncThunk(
     "Userdata/userFetch",
     async () => {
         const res = await axios.get(`${server}/getuser`, { withCredentials: true })
-        console.log(res.data);
         return res.data
     }
 )

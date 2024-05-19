@@ -81,8 +81,8 @@ router.post('/activation', async (req, res) => {
         }
         const err = new FancyError("user already exists", 400)
         return error(err, req, res)
-
         // sendToken(user, 201, res)
+        
     } catch (er) {
         const err = new FancyError(er.message, 500)
         return error(err, req, res)
@@ -115,7 +115,6 @@ router.post('/login-user', async (req, res) => {
 
 // get User
 router.get('/getuser', Authenticate, async (req, res) => {
-    console.log('calling get user');
     try {
         const user = await User.findById(req.user._id)
         if (!user) {
