@@ -10,11 +10,9 @@ import { CgProfile } from "react-icons/cg"
 import DropDown from "./DropDown"
 import Navbar from "./Navbar.jsx"
 import { useSelector } from 'react-redux'
-import Wishlist from "../wishlist/Wishlist"
-import { backend_url } from '../../server'
 import Cart from "../cart/Cart"
 const Header = ({ activeHeading }) => {
-    const { isAuthenticated, user } = useSelector(state => state.user)
+    const { isAuthenticated } = useSelector(state => state.user)
     const [searchTerm, setsearchTerm] = useState("");
     const [searchData, setsearchData] = useState(null);
     const [active, setActive] = useState(false);

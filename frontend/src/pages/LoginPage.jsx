@@ -9,7 +9,7 @@ const LoginPage = () => {
     if (isAuthenticated === true) {
       navigate("/");
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated, navigate])
   return (
     <div >
       <Login />

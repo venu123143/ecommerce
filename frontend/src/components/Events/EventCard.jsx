@@ -7,7 +7,7 @@ const EventCard = ({ active, image, name, price }) => {
         <div className={`w-full block bg-white rounded-lg ${active ? "unset" : 'mb-12'} lg:flex p-2 mb-10`}>
             <div className="w-full lg:w-[50%] m-auto">
                 {/* <img src="https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1" alt="" /> */}
-                <img src={image ? image[0].url : "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1"} alt="" />
+                <img src={image ? image[0].url : "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1"}  />
             </div>
             <div className="w-full lg:w-[50%] flex flex-col justify-center">
                 <h2 className={`${styles.productTitle}`}>{name ? name : "titan watch"}</h2>

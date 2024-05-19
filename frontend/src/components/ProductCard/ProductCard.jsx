@@ -14,7 +14,7 @@ const ProductCard = ({ data}) => {
             <div className='w-full h-[370px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer'>
                 <div className="flex justify-end"></div>
                 <Link to={`/product/${product_name}`}>
-                    <img src={data.image_Url[0].url} alt="alter image"
+                    <img src={data.image_Url[0].url} alt="productPhoto"
                         className='w-full h-[170px] object-contain' />
                 </Link>
                 <Link to="/" >
